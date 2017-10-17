@@ -1,7 +1,9 @@
-'use strict'
+"use strict";
 
-const Router = require('koa-router')
+const Router = require("koa-router");
 
-const router = new Router()
+const router = new Router();
 
-module.exports = router
+router.get("/hello", (ctx, next) => (ctx.body = "Hello Node.js!"));
+
+module.exports = router;
