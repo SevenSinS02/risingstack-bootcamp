@@ -1,12 +1,15 @@
-'use strict'
+"use strict";
 
-const Koa = require('koa')
-const logger = require('winston')
+const Koa = require("koa");
+const logger = require("winston");
+const router = require("./router");
 
-const app = new Koa()
+const app = new Koa();
 
-app.on('error', (err) => {
-  logger.error('Server error', { error: err.message })
-})
+app.use(router.routes());
 
-module.exports = app
+app.on("error", err => {
+  logger.error("Server error", { error: err.message });
+});
+
+module.exports = app;
