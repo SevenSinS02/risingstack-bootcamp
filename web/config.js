@@ -1,18 +1,19 @@
-"use strict";
+'use strict'
 
-const joi = require("joi");
+const joi = require('joi')
 
 const envObjSchema = joi
   .object({
-    PORT: joi.number().integer().min(0).max(65535).required()
+    PORT: joi.number().integer().min(0).max(65535)
+      .required()
   })
-  .unknown(false)
-  .required();
+  .unknown()
+  .required()
 
-const envObj = joi.attempt(process.env, envObjSchema);
+const envObj = joi.attempt(process.env, envObjSchema)
 
 const config = {
   port: envObj.PORT
-};
+}
 
-module.exports = config;
+module.exports = config
