@@ -95,10 +95,10 @@
 ### 1. Create a simple web application and make the test pass
 
   Tasks:
-  - [ ] Create a `GET` endpoint `/hello` returning `Hello Node.js!` in the response body, use the middleware of the `koa-router` package
-  - [ ] Use the `PORT` environment variable to set the port, **make it required**
-  - [ ] Make the tests pass (`npm run test-web`)
-  - [ ] Run the application (eg. `PORT=3000 npm start` and try if it breaks when `PORT` is not provided)
+  - [x] Create a `GET` endpoint `/hello` returning `Hello Node.js!` in the response body, use the middleware of the `koa-router` package
+  - [x] Use the `PORT` environment variable to set the port, **make it required**
+  - [x] Make the tests pass (`npm run test-web`)
+  - [x] Run the application (eg. `PORT=3000 npm start` and try if it breaks when `PORT` is not provided)
 
   Readings:
   - [12 factor - Config](https://12factor.net/config)
@@ -113,14 +113,14 @@
   In this step you will implement two functions, wrappers for the GitHub API. You will use them to get information from GitHub later.
 
   Tasks:
-  - [ ] `searchRepositories(query)`: should search for repositories given certain programming languages and/or keywords
+  - [x] `searchRepositories(query)`: should search for repositories given certain programming languages and/or keywords
     - The `query` function parameter is an `Object` of key-value pairs of the request query parameters (eg. `{ q: 'language:javascript' }`, defaults to `{}`)
     - It returns a `Promise` of the HTTP response without modification
-  - [ ] `getContributors(repository, query)`: get contributors list with additions, deletions, and commit counts (statistics)
+  - [x] `getContributors(repository, query)`: get contributors list with additions, deletions, and commit counts (statistics)
     - `repository` function parameter is a String of the repository full name, including the owner (eg. `RisingStack/cache`)
     - The `query` function parameter is an `Object` of key-value pairs of the request query parameters (defaults to `{}`)
     - It returns a `Promise` of the HTTP response without modification
-  - [ ] Write unit tests for each function, use `nock` to intercept HTTP calls to the GitHub API endpoints
+  - [x] Write unit tests for each function, use `nock` to intercept HTTP calls to the GitHub API endpoints
 
   Readings:
   - [Github API v3](https://developer.github.com/v3)
@@ -141,7 +141,7 @@
   It consists of 3 tables: `user`, `repository`, `contribution`. Rows in the `repository` table have foreign keys to a record in the `user` table, `owner`. The `contribution` table is managing many-to-many relationship between the `user` and `repository` tables with foreign keys.
 
   Tasks:
-  - [ ] Edit the config and specify the `migrations` field in the knex initialization `Object`, for example:
+  - [x] Edit the config and specify the `migrations` field in the knex initialization `Object`, for example:
     ```js
       {
         client: 'pg',
@@ -151,7 +151,7 @@
         }
       }
     ```
-  - [ ] Create one migration file per table (eg. `1-create-user.js`, `2-create-repository.js`, `3-create-contribution.js`) with the following skeleton:
+  - [x] Create one migration file per table (eg. `1-create-user.js`, `2-create-repository.js`, `3-create-contribution.js`) with the following skeleton:
     - `up` method has the logic for the migration, `down` is for reverting it
     - The migrations are executed in transactions
     - The files are executed in alphabetical order
@@ -175,7 +175,7 @@
       down
     }
     ```
-  - [ ] Add a `migrate-db` script to the scripts in `package.json`, edit `scripts/migrate-db.js` to add the migration call. Finally, run your migration script to create the tables:
+  - [x] Add a `migrate-db` script to the scripts in `package.json`, edit `scripts/migrate-db.js` to add the migration call. Finally, run your migration script to create the tables:
     ```sh
     $ npm run migrate-db -- --local
     ```
