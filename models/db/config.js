@@ -5,7 +5,7 @@ const { parse } = require('pg-connection-string')
 const path = require('path')
 
 const envVarSchema = joi.object({
-  PG_URI: joi.string().uri({ scheme: 'postgress' }).required(),
+  PG_URI: joi.string().uri({ scheme: 'postgres' }).required(),
   PG_SSL_CA: joi.string(),
   PG_SSL_KEY: joi.string(),
   PG_SSL_CERT: joi.string(),
