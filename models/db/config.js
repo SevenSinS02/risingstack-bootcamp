@@ -41,4 +41,6 @@ const config = {
   }
 }
 
+console.log(path.join(__dirname))
+
 module.exports = config
